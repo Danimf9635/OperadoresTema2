@@ -1,18 +1,30 @@
 import java.util.Scanner;
 
 public class CalculadoraDeDescuento {
+
     static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Introduce el precio del producto");
-        int producto = scanner.nextInt();
-        System.out.println("\n Introduce el porcentaje de descuento");
+
+        // Inicializar Scanner para leer la entrada del usuario
+        Scanner scanner= new Scanner(System.in);
+
+        //Precio producto
+        System.out.println("Introducir el precio del producto");
+        int producto= scanner.nextInt();
+
+        //Precio porcentaje
+        System.out.println("introducir precio porcentaje");
         int porcentaje = scanner.nextInt();
 
-        double productoDouble=producto;
-        System.out.println("precio original "+productoDouble);
+        //CALCULOS
 
-        double pocentajeDouble= productoDouble%20;
-        System.out.println("Descuento (20%) "+pocentajeDouble);
-        double precioFinal= pocentajeDouble%productoDouble;
+        double descuento = (double) producto*porcentaje/100.0;
+        double precioFinal = producto - descuento;
+
+        //IMPRIMIR EN CONSOLA
+        System.out.printf("Precio original: %.2f€\n", (double) producto);
+        System.out.printf("Descuento (%d%%): %.2f€\n",porcentaje,(double)producto);
+        System.out.printf("Precio Final: %.2f€\n",precioFinal);
+        scanner.close();
+
     }
 }
